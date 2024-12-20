@@ -1,5 +1,14 @@
 # dockerfile-example
 
+## Basic usage
+
+```console
+docker build -t test-image:0.1 .
+docker run -it --name test-container test-image:0.1 /bin/bash
+```
+
+## Docker usage
+
 - Build docker image from dockerfile
 
 ```console
