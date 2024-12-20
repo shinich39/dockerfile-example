@@ -6,7 +6,7 @@ FROM ubuntu:latest
 # Commands to be executed when after the image is loaded
 # Defining variables for build time and run time
 ENV NODE_VERSION="20"
-ENV PYTHON_VERSION="3"
+ENV PYTHON_VERSION="3.9"
 ENV USER_NAME="shinich39"
 ENV USER_EMAIL="shinich39@gmail.com"
 # ENV REPO_TOKEN=""
@@ -25,6 +25,7 @@ RUN apt-get update
 RUN apt-get install -y \
     vim \
     curl \
+    software-properties-common \
     git
 
 # Set git configuration settings
@@ -52,9 +53,12 @@ RUN apt-get install -y nodejs
 
 ### Setup python
 
-# Install python
+# Install older version python
+RUN add-apt-repository ppa:deadsnakes/ppa
+RUN apt-get update
+
 RUN apt-get install -y \
-    python3 \
+    python${PYTHON_VERSION} \
     python3-pip \
     python3-venv
     
