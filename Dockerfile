@@ -55,7 +55,8 @@ RUN apt-get install -y nodejs
 # Install python
 RUN apt-get install -y \
     python3 \
-    python3-pip
+    python3-pip \
+    python3-venv
     
 # Bugfix: --break-system-packages
 RUN python3 -m pip config set global.break-system-packages true
